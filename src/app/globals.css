@@ -1,0 +1,195 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  @apply bg-background text-foreground;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-space-grotesk), var(--font-inter), sans-serif;
+}
+
+.gradient-text {
+  @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+}
+
+.gradient-button {
+  @apply bg-gradient-to-r from-primary to-accent text-primary-foreground shadow-sm hover:from-primary/90 hover:to-accent/90;
+}
+
+/* Glowing photo: blue pulsing to teal */
+.glowing-border {
+  animation: glowing 4s ease-in-out infinite;
+  box-shadow:
+    0 0 10px rgba(37, 99, 235, 0.7),
+    0 0 25px rgba(37, 99, 235, 0.5),
+    0 0 45px rgba(37, 99, 235, 0.35);
+}
+
+@keyframes glowing {
+  0%, 100% {
+    box-shadow:
+      0 0 10px rgba(37, 99, 235, 0.7),
+      0 0 25px rgba(37, 99, 235, 0.5),
+      0 0 45px rgba(37, 99, 235, 0.35);
+  }
+  50% {
+    box-shadow:
+      0 0 15px rgba(13, 148, 136, 0.8),
+      0 0 40px rgba(13, 148, 136, 0.6),
+      0 0 70px rgba(13, 148, 136, 0.4);
+  }
+}
+
+/* ---------- Motion helpers ---------- */
+
+/* Text/elements slide up and fade in on load */
+.animate-fade-up {
+  opacity: 0;
+  animation: fadeUp 0.8s ease-out forwards;
+}
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.25s; }
+.delay-3 { animation-delay: 0.4s; }
+.delay-4 { animation-delay: 0.55s; }
+.delay-5 { animation-delay: 0.7s; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Gentle floating */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+.animate-float-slow {
+  animation: float 8s ease-in-out infinite;
+  animation-delay: -2s;
+}
+.animate-float-fast {
+  animation: float 5s ease-in-out infinite;
+  animation-delay: -1s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+
+/* Spinning gradient ring around the photo */
+.spin-ring {
+  background: conic-gradient(
+    from 0deg,
+    hsl(var(--primary)),
+    hsl(var(--accent)),
+    hsl(var(--primary) / 0.2),
+    hsl(var(--primary))
+  );
+  animation: spin-ring 6s linear infinite;
+}
+
+@keyframes spin-ring {
+  to { transform: rotate(360deg); }
+}
+
+/* Drifting background blobs */
+.blob {
+  animation: blob 14s ease-in-out infinite;
+}
+
+@keyframes blob {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(40px, -30px) scale(1.1); }
+  66% { transform: translate(-30px, 30px) scale(0.95); }
+}
+
+/* Respect people who turn animations off */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up,
+  .animate-float,
+  .animate-float-slow,
+  .animate-float-fast,
+  .spin-ring,
+  .blob,
+  .glowing-border {
+    animation: none !important;
+    opacity: 1;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 221 83% 53%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 40% 94%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 40% 94%;
+    --muted-foreground: 215 16% 38%;
+
+    --accent: 173 75% 32%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 89%;
+    --input: 214 32% 89%;
+    --ring: 221 83% 53%;
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 210 40% 6%;
+    --foreground: 40 30% 96%;
+
+    --card: 210 40% 8%;
+    --card-foreground: 40 30% 96%;
+
+    --popover: 210 40% 6%;
+    --popover-foreground: 40 30% 96%;
+
+    --primary: 175 60% 40%;
+    --primary-foreground: 40 30% 98%;
+
+    --secondary: 210 40% 12%;
+    --secondary-foreground: 40 30% 98%;
+
+    --muted: 210 40% 12%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 345 55% 45%;
+    --accent-foreground: 40 30% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 210 40% 15%;
+    --input: 210 40% 15%;
+    --ring: 175 60% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+}
