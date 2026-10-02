@@ -11,7 +11,7 @@ const words = caption.split(' ');
 /* Save your file here:
    public/image/insat-logo.png  -> INSAT logo */
 const LOGO_SOURCES = [
-  '/image/insat-logo.png',
+  '/image/insat logo.jpg',
   'https://www.google.com/s2/favicons?domain=insat.rnu.tn&sz=128',
 ];
 
