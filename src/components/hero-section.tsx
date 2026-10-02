@@ -106,11 +106,7 @@ export default function HeroSection() {
               <Typewriter words={focusAreas} />
             </span>
           </p>
-
-          <p className="animate-fade-up delay-4 mx-auto max-w-xl text-lg text-muted-foreground md:mx-0">
-            Looking for my first full-time opportunity.
-          </p>
-
+          
           <div className="animate-fade-up delay-4 flex justify-center gap-4 pt-2 md:justify-start">
             <a
               href="https://www.linkedin.com/in/lina-hamad-/"
