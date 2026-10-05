@@ -75,7 +75,7 @@ const skillCategories: { title: string; Icon: LucideIcon; skills: Skill[] }[] = 
     ],
   },
   {
-    title: 'Developer Tools',
+    title: 'Tools',
     Icon: Wrench,
     skills: [
       { name: 'Git', slug: 'git', color: '#F05032', Icon: Code },
