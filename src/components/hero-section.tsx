@@ -128,7 +128,7 @@ export default function HeroSection() {
               size="lg"
               className="gradient-button w-full transition-transform hover:-translate-y-0.5 hover:shadow-lg sm:w-auto"
             >
-              <a href="/Resume(3).pdf" target="_blank" rel="noopener noreferrer">
+              <a href="/Resume.pdf" target="_blank" rel="noopener noreferrer">
                 <Eye className="mr-2" />
                 Preview Resume
               </a>
@@ -140,7 +140,7 @@ export default function HeroSection() {
               variant="outline"
               className="w-full border-border bg-card transition-transform hover:-translate-y-0.5 hover:bg-secondary sm:w-auto"
             >
-              <a href="/Resume(3).pdf" download>
+              <a href="/Resume.pdf" download>
                 <Download className="mr-2" />
                 Download Resume
               </a>
